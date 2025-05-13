@@ -22,6 +22,7 @@ class MealTypesListView extends StatelessWidget {
         child: SingleChildScrollView(
           child: ListView.separated(
             shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: _mealTypesList.length,
             itemBuilder: (context, index) {
               return _mealTypesList[index];
