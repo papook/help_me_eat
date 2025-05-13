@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-class MealsList extends StatelessWidget {
-  MealsList({super.key});
+class MealTypesListView extends StatelessWidget {
+  MealTypesListView({super.key});
   // TODO: Create a list of meal categories
-  final _categories = [
-    MealCategoryTile(mealCategory: MealCategory.breakfast),
-    MealCategoryTile(mealCategory: MealCategory.lunch),
-    MealCategoryTile(mealCategory: MealCategory.dinner),
-    MealCategoryTile(mealCategory: MealCategory.snacks),
+  final _mealTypesList = [
+    MealTypeListTile(mealType: MealTypes.breakfast),
+    MealTypeListTile(mealType: MealTypes.lunch),
+    MealTypeListTile(mealType: MealTypes.dinner),
+    MealTypeListTile(mealType: MealTypes.snacks),
+    MealTypeListTile(mealType: MealTypes.dinner),
+    MealTypeListTile(mealType: MealTypes.dinner),
   ];
 
   @override
@@ -22,9 +24,9 @@ class MealsList extends StatelessWidget {
         child: SingleChildScrollView(
           child: ListView.separated(
             shrinkWrap: true,
-            itemCount: _categories.length,
+            itemCount: _mealTypesList.length,
             itemBuilder: (context, index) {
-              return _categories[index];
+              return _mealTypesList[index];
             },
             separatorBuilder: (context, index) {
               return Divider(indent: 10, endIndent: 20);
@@ -36,23 +38,23 @@ class MealsList extends StatelessWidget {
   }
 }
 
-class MealCategoryTile extends StatelessWidget {
-  final MealCategory mealCategory;
+class MealTypeListTile extends StatelessWidget {
+  final MealTypes mealType;
   // TODO: Replace both values with actual data from the provider
   final double intakeCals = 200;
   final double goalCals = 500;
 
-  const MealCategoryTile({super.key, required this.mealCategory});
+  const MealTypeListTile({super.key, required this.mealType});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: Container(
         margin: const EdgeInsets.only(right: 5),
-        child: mealCategory.iconWidget,
+        child: mealType.iconWidget,
       ),
       title: Text(
-        mealCategory.mealName,
+        mealType.mealName,
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       subtitle: Text(
@@ -68,7 +70,7 @@ class MealCategoryTile extends StatelessWidget {
   }
 }
 
-enum MealCategory {
+enum MealTypes {
   breakfast(
     mealName: 'Breakfast',
     iconWidget: Icon(Icons.breakfast_dining, size: _iconSize),
@@ -90,5 +92,5 @@ enum MealCategory {
   final String mealName;
   final Icon iconWidget;
 
-  const MealCategory({required this.mealName, required this.iconWidget});
+  const MealTypes({required this.mealName, required this.iconWidget});
 }
