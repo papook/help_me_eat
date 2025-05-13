@@ -8,8 +8,6 @@ class MealTypesListView extends StatelessWidget {
     MealTypeListTile(mealType: MealTypes.lunch),
     MealTypeListTile(mealType: MealTypes.dinner),
     MealTypeListTile(mealType: MealTypes.snacks),
-    MealTypeListTile(mealType: MealTypes.dinner),
-    MealTypeListTile(mealType: MealTypes.dinner),
   ];
 
   @override
