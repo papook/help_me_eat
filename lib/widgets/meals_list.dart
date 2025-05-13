@@ -7,7 +7,6 @@ class MealsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mealCategoryDivider = Divider(height: 0, indent: 10, endIndent: 20);
     return Card(
       color: Theme.of(context).colorScheme.surfaceContainerLow,
       clipBehavior: Clip.antiAlias,
